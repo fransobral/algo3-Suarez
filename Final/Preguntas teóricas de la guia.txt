@@ -1,0 +1,56 @@
+• Segun Fowler, ¿Cuáles son los principales beneficios de la integración continua?
+
+1. Reducción del riesgo.
+2. En todo momento sabes dónde estás, qué funciona, qué no, los errores pendientes que tienes en tu sistema.
+3. Las integraciones continuas no eliminan los errores, pero los hace mucho más fáciles de encontrar y eliminar. 
+4. Los proyectos con Integración Continua tienden a tener dramáticamente menos errores, tanto en producción como en proceso. 
+5. Elimina una de las mayores barreras para la implementación continua, la cual es valiosa porque permite a los usuarios obtener nuevas funciones más 
+   rápidamente, dar comentarios más rápidos sobre esas funciones y, en general, volverse más colaborativos en el ciclo de desarrollo.
+
+• ¿Porque Fowler sostiene que el ámbito donde se realicen las pruebas debe ser una clonación del ambiente real de producción? ¿Es esto siempre posible?
+
+Si hay diferencias en el entorno, obtendrá resultados diferentes y poco fiables. Es decir, cada diferencia presenta un riesgo potencial de obtener un 
+resultado que no obtendrá en la producción real.
+
+Por eso es fundamental que el entorno de prueba refleje el entorno de producción, incluidos, entre otros: el software de la base de datos, el sistema 
+operativo, las bibliotecas, las direcciones IP y los puertos, el hardware, etc. 
+
+Dicho esto, existen límites obvios. No es posible ejecutar una prueba para cada variación del software de escritorio de un usuario final, asegurándose de 
+que su software interactúe perfectamente con todas las demás piezas de software que existen. No obstante, el objetivo es replicar el entorno de la manera 
+más perfecta posible.
+
+• ¿A qué se refiere Ingalls con la frase “Ningún componente en un sistema complejo debería depender de los detalles internos de ningún otro componente”?
+
+PRINCIPIO DE MODULARIDAD:
+
+Si hay n componentes en un sistema, entonces hay dependencias potenciales aproximadamente n-cuadradas entre ellos. A medida que aumenta el número de 
+componentes de un sistema, las posibilidades de interacción no deseada aumentan rápidamente. Por ello, debería diseñarse un lenguaje informático para 
+minimizar las posibilidades de tal interdependencia.
+
+• ¿Porque Ingalls afirma que “Un programa nunca debería declarar que cierto objeto es un SmallInteger (entero chico) o un LargeInteger (entero grande)”?
+
+En cada etapa del diseño, un ser humano elegirá naturalmente la representación más efectiva si el sistema lo permite. El principio de modularidad tiene 
+una implicación interesante para los componentes procedimentales de un sistema:Polimorfismo. Un programa debe especificar solo el comportamiento de los 
+objetos, no su representación.
+
+Una declaración convencional de este principio es que un programa nunca debe declarar que un objeto dado es un SmallInteger o un LargeInteger, sino solo 
+que responde a un protocolo de enteros. Esta descripción genérica es crucial para los modelos del mundo real.
+
+• ¿A qué se refiere el artículo “Unit Testing Guidelines” con la frase Cover boundary cases?
+
+Asegúrese de que se cubran los casos de límites de parámetros. Para números, pruebas negativas, 0, positivo, más pequeño, más grande, NaN, infinito, etc. 
+Para cadenas, prueba cadena vacía, cadena de un solo carácter, cadena no ASCII, cadenas de varios MB, etc. Para colecciones prueba vacía, uno, primero, 
+último, etc. Para las fechas, pruebe el 1 de enero, el 29 de febrero, el 31 de diciembre, etc. 
+
+La clase que se está probando sugerirá los casos límite en cada caso específico. El punto es asegurarse de que la mayor cantidad posible de estos se prueben 
+correctamente, ya que estos casos son los principales candidatos para errores.
+
+• ¿A qué se refiere el artículo “Unit Testing Guidelines” con la frase Keep tests independent?
+
+Para garantizar la solidez de las pruebas y simplificar el mantenimiento, las pruebas nunca deben depender de otras pruebas ni deben depender del orden en 
+el que se ejecutan las pruebas.
+
+
+• ¿A qué se refiere el artículo “Unit Testing Guidelines” con la frase Provide negative tests?
+
+Las pruebas negativas hacen un mal uso intencional del código y verifican la solidez y el manejo apropiado de errores.

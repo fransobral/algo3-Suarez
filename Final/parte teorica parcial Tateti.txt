@@ -1,0 +1,16 @@
+2) El código repetido suele mencionarse como un mal síntoma de diseño, Eliminarlo implicaría usar alguna
+refactorización, que dependerá de si la repetición se da dentro de una misma clase, entre dos clases
+hermanas o entre clases no vinculadas.
+a. Explique qué es una refactorización, y qué se busca con la práctica de refactoring.
+b. Relate las 3 refactorizaciones que haría en los 3 casos de código repetido mencionados más
+arriba, usando código o diagramas para mostrarlas.
+c. ¿Qué hace que una refactorización sea tal y no otro tipo de cambio de código? ¿Cómo puede
+garantizar esto?
+
+
+
+a.	Una refactorización implica una mejora en la calidad del código que no implica cambios en su funcionalidad.  Se busca código mejorarlo en distintas maneras, ya se su legibilidad, escalabilidad o posibilidad de mantenimiento a futuro
+b.	Si existe código repetido en una clase en sí, se puede crear un método dentro de esa clase para que lo llame en estos casos donde se repite. En caso de que pase en clases hermanas, lo que se hace es crear una clase padre y establecer una relación de herencia entre estas. Las clases hijas heredaran ese código repetido de la clase padre. Si las clases no están vinculadas, la respuesta sería crear una clase a la cual las que tienen código repetido accedan por delegación, y que esta nueva clase tenga un método que contenga el código repetido.
+c.	Otro tipo de cambio de código, como por ejemplo que se opte por un modelo distinto, puede modificar la funcionalidad y entonces haría fallar las pruebas previamente creadas. En una factorización las pruebas deberían seguir corriendo luego de esta.
+
+

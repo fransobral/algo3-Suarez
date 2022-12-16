@@ -1,0 +1,13 @@
+En Smalltalk existe una clase LinkedList, que implementa una lista encadenada, con métodos que permiten obtener un elemento, modificar su valor, agregar o eliminar elementos, etc. Además, se incluye una clase Stack que hereda el comportamiento de LinkedList, creada para manejar pilas.
+a. ¿Es correcto este planteo, conceptualmente? ¿Por qué?
+b. En caso de no ser correcto, ¿qué inconvenientes prácticos ocasiona?
+c. En caso de no ser correcto, ¿qué solución propone? Acompañe con un diagrama de clases.
+
+
+
+2)
+a. Esta mal que Stack herede de LinkedList ya que no cumple la relacion "es un", un Stack no posee todos los comportamientos que una LinkedList promete.
+
+b. El inconveniente practico sera que la interfaz que promete el Stack no es la misma que la que implementa. -> queda más claro diciendo que "Stack está heredando la interfaz de LinkedList, con lo cual podemos realizar operaciones con el Stack que no deberíamos poder (ej, eliminar un elemen to de cualquier posi ción)"
+
+c. Una solucion simple (aunque no optima) seria que el Stack "use" o "tenga" una LinkedList en vez de "ser" una.
